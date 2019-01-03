@@ -1,5 +1,6 @@
 package com.example.tayler_gabbi.mvp_retrofit2
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -27,6 +28,11 @@ class MainActivity : AppCompatActivity(),HomeView {
         homePresenter!!.cargarProductos(productoAdapter!!,my_recyclerview)
 
     }
+    override fun pasarDetalle() {
+        val intent = Intent(this@MainActivity,DetalleProductoActivity::class.java)
+        startActivity(intent)
+    }
+
 
     override fun cargarProductos() {
         Toast.makeText(this@MainActivity, "lista cargada", Toast.LENGTH_SHORT).show()

@@ -21,6 +21,13 @@ class HomePresenterImpl (private val  homeView: HomeView): HomePresenter,OnHomeF
         homeInteractor.cargarLista(adapter,recyclerView,this)
     }
 
+
+    override fun pasarOtroActivity() {
+        if (homeView != null){
+            homeView.pasarDetalle()
+        }
+    }
+
     override fun cargarProductosListener() {
         if (homeView != null){
             homeView.cargarProductos()

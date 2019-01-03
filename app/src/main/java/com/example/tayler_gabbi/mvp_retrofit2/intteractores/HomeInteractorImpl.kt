@@ -1,28 +1,24 @@
 package com.example.tayler_gabbi.mvp_retrofit2.intteractores
 
+
 import android.support.v7.widget.RecyclerView
-import android.view.View
 import com.example.tayler_gabbi.mvp_retrofit2.adapter.ListaProductoAdapter
 import com.example.tayler_gabbi.mvp_retrofit2.api.ProductoService
 import com.example.tayler_gabbi.mvp_retrofit2.api.model.Producto
 import com.example.tayler_gabbi.mvp_retrofit2.interfaces.HomeInteractor
 import com.example.tayler_gabbi.mvp_retrofit2.interfaces.OnHomeFinishListener
-import com.example.tayler_gabbi.mvp_retrofit2.presenter.HomePresenter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class HomeInteractorImpl : HomeInteractor {
 
-    override fun cargarLista(adapter: ListaProductoAdapter, recyclerView: RecyclerView,listener : OnHomeFinishListener) {
+    override fun cargarLista(adapter: ListaProductoAdapter, recyclerView: RecyclerView, listener : OnHomeFinishListener) {
 
 
         adapter.onDetalleProductoClick = {
-
-            
+            listener.pasarOtroActivity()
         }
-
-
       val listaCallback = ProductoService.create().obtenerListaProductos()
      listaCallback.enqueue(object : Callback<ArrayList<Producto>> {
          override fun onResponse(call: Call<ArrayList<Producto>>?, response: Response<ArrayList<Producto>>?) {
