@@ -8,7 +8,7 @@ import com.example.tayler_gabbi.mvp_retrofit2.R
 import com.example.tayler_gabbi.mvp_retrofit2.api.model.Producto
 import kotlinx.android.synthetic.main.molde_lista_productos.view.*
 
-class ListaProductoAdapter: RecyclerView.Adapter<ListaProductoAdapter.ProductoViewHolder>() {
+class ListaProductoAdapter (var onDetalleProductoClick: ((Producto) -> Unit)? = null): RecyclerView.Adapter<ListaProductoAdapter.ProductoViewHolder>() {
 
     private var productos : List<Producto>? = null
 
@@ -34,6 +34,10 @@ class ListaProductoAdapter: RecyclerView.Adapter<ListaProductoAdapter.ProductoVi
 
         holder.nombreProducto.text = producto.nombre
         holder.precioproducto.text = "$/ "+producto.precio.toString()
+        holder.itemView.setOnClickListener{
+
+            onDetalleProductoClick?.invoke(producto)
+        }
 
     }
 
