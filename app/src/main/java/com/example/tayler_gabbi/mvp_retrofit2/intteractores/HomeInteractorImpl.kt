@@ -17,6 +17,12 @@ class HomeInteractorImpl : HomeInteractor {
     override fun cargarLista(adapter: ListaProductoAdapter, recyclerView: RecyclerView,listener : OnHomeFinishListener) {
 
 
+        adapter.onDetalleProductoClick = {
+
+            
+        }
+
+
       val listaCallback = ProductoService.create().obtenerListaProductos()
      listaCallback.enqueue(object : Callback<ArrayList<Producto>> {
          override fun onResponse(call: Call<ArrayList<Producto>>?, response: Response<ArrayList<Producto>>?) {
