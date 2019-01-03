@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.example.tayler_gabbi.mvp_retrofit2.adapter.ListaProductoAdapter
+import com.example.tayler_gabbi.mvp_retrofit2.api.model.Producto
 import com.example.tayler_gabbi.mvp_retrofit2.model.HomePresenterImpl
 import com.example.tayler_gabbi.mvp_retrofit2.presenter.HomePresenter
 import com.example.tayler_gabbi.mvp_retrofit2.view.HomeView
@@ -14,14 +15,13 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(),HomeView {
 
 
-    var productoAdapter : ListaProductoAdapter? = null
+    var productoAdapter : ListaProductoAdapter = ListaProductoAdapter()
     var homePresenter : HomePresenter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        productoAdapter = ListaProductoAdapter()
+        //productoAdapter = ListaProductoAdapter()
         homePresenter = HomePresenterImpl(this)
         my_recyclerview.layoutManager = LinearLayoutManager(this)
         my_recyclerview.adapter = productoAdapter
@@ -29,7 +29,14 @@ class MainActivity : AppCompatActivity(),HomeView {
 
     }
     override fun pasarDetalle() {
+
+        var producto : Producto? = null
+        productoAdapter?.onDetalleProductoClick ={
+            producto = Producto(it.id,it.nombre,it.precio,it.lote,it.stock,it.descripcion)
+        }
         val intent = Intent(this@MainActivity,DetalleProductoActivity::class.java)
+
+        intent.putExtra(DetalleProductoActivity.PRODUCTO_PARAM, producto)
         startActivity(intent)
     }
 

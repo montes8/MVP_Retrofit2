@@ -11,4 +11,5 @@ interface HomeView {
     fun CargarError()
 
     fun pasarDetalle()
+
 }
