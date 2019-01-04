@@ -18,28 +18,30 @@ class MainActivity : AppCompatActivity(),HomeView {
     var productoAdapter : ListaProductoAdapter = ListaProductoAdapter()
     var homePresenter : HomePresenter? = null
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //productoAdapter = ListaProductoAdapter()
+        productoAdapter = ListaProductoAdapter()
+
         homePresenter = HomePresenterImpl(this)
         my_recyclerview.layoutManager = LinearLayoutManager(this)
         my_recyclerview.adapter = productoAdapter
-        homePresenter!!.cargarProductos(productoAdapter!!,my_recyclerview)
+
+        homePresenter!!.cargarProductos(productoAdapter!!)
+        homePresenter!!.pasarActivityDetalle(productoAdapter)
+
+
 
     }
-    override fun pasarDetalle() {
 
-        var producto : Producto? = null
-        productoAdapter?.onDetalleProductoClick ={
-            producto = Producto(it.id,it.nombre,it.precio,it.lote,it.stock,it.descripcion)
-        }
+    override fun pasarDetalle(producto: Producto) {
+
         val intent = Intent(this@MainActivity,DetalleProductoActivity::class.java)
-
-        intent.putExtra(DetalleProductoActivity.PRODUCTO_PARAM, producto)
+        intent.putExtra(DetalleProductoActivity.PRODUCTO_PARAM,producto)
         startActivity(intent)
     }
-
 
     override fun cargarProductos() {
         Toast.makeText(this@MainActivity, "lista cargada", Toast.LENGTH_SHORT).show()

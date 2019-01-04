@@ -1,6 +1,8 @@
 package com.example.tayler_gabbi.mvp_retrofit2.view
 
-import com.example.tayler_gabbi.mvp_retrofit2.adapter.ListaProductoAdapter
+import android.content.Intent
+import com.example.tayler_gabbi.mvp_retrofit2.MainActivity
+import com.example.tayler_gabbi.mvp_retrofit2.api.model.Producto
 
 interface HomeView {
 
@@ -10,6 +12,6 @@ interface HomeView {
 
     fun CargarError()
 
-    fun pasarDetalle()
+    fun pasarDetalle(producto: Producto)
 
 }

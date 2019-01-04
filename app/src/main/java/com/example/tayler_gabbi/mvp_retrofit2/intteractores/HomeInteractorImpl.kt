@@ -1,7 +1,11 @@
 package com.example.tayler_gabbi.mvp_retrofit2.intteractores
 
 
+import android.content.Context
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
+import com.example.tayler_gabbi.mvp_retrofit2.DetalleProductoActivity
 import com.example.tayler_gabbi.mvp_retrofit2.adapter.ListaProductoAdapter
 import com.example.tayler_gabbi.mvp_retrofit2.api.ProductoService
 import com.example.tayler_gabbi.mvp_retrofit2.api.model.Producto
@@ -13,12 +17,22 @@ import retrofit2.Response
 
 class HomeInteractorImpl : HomeInteractor {
 
-    override fun cargarLista(adapter: ListaProductoAdapter, recyclerView: RecyclerView, listener : OnHomeFinishListener) {
 
+    override fun pasarActivity(adapter: ListaProductoAdapter, listener : OnHomeFinishListener) {
 
         adapter.onDetalleProductoClick = {
-            listener.pasarOtroActivity()
+            listener.pasarOtroActivity(it)
+
         }
+
+    }
+
+
+
+
+    override fun cargarLista(adapter: ListaProductoAdapter, listener : OnHomeFinishListener) {
+
+
       val listaCallback = ProductoService.create().obtenerListaProductos()
      listaCallback.enqueue(object : Callback<ArrayList<Producto>> {
          override fun onResponse(call: Call<ArrayList<Producto>>?, response: Response<ArrayList<Producto>>?) {
@@ -41,4 +55,5 @@ class HomeInteractorImpl : HomeInteractor {
          }
      })
     }
+
 }
