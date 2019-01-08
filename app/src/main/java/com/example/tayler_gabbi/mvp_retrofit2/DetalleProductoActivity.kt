@@ -22,5 +22,7 @@ class DetalleProductoActivity : AppCompatActivity() {
         stock_detalle_producto.text = detallesProducto.stock.toString()
         lote_producto_detalle.text = detallesProducto.lote.toString()
         detalle_producto_detalle.text = detallesProducto.descripcion
+
+
     }
 }
