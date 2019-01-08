@@ -8,7 +8,7 @@ import com.example.tayler_gabbi.mvp_retrofit2.api.model.Producto
 
 interface HomeInteractor {
 
-    fun cargarLista(adapter: ListaProductoAdapter, listener : OnHomeFinishListener)
+    fun cargarLista(adapter: ListaProductoAdapter,listener : OnHomeFinishListener )
 
     fun pasarActivity(adapter: ListaProductoAdapter, listener : OnHomeFinishListener)
 }
