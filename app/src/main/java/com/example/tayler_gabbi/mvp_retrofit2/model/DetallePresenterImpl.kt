@@ -8,7 +8,8 @@ import com.example.tayler_gabbi.mvp_retrofit2.presenter.DetallePresenter
 import com.example.tayler_gabbi.mvp_retrofit2.view.DetalleView
 
 class DetallePresenterImpl(private val detalleView : DetalleView): DetallePresenter , OnDetalleFinishListener{
-  
+
+
 
     var detalleInteractor : DetalleInteractor = DetalleInteractorImpl()
 
@@ -24,5 +25,19 @@ class DetallePresenterImpl(private val detalleView : DetalleView): DetallePresen
     }
 
 
+    override fun productoEliminado() {
+        detalleView.productoEliminadoListo()
+    }
 
+    override fun eliminarErrorProducto() {
+        detalleView.eliminarErrorProductoListo()
+    }
+
+    override fun eliminarError() {
+        detalleView.eliminarErrorListo()
+    }
+
+    override fun actulizaProducto(producto: Producto) {
+        detalleView.actulizaProductoListo(producto)
+    }
 }
