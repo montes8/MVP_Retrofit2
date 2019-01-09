@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import com.example.tayler_gabbi.mvp_retrofit2.adapter.ListaProductoAdapter
 import com.example.tayler_gabbi.mvp_retrofit2.api.model.Producto
@@ -29,9 +31,6 @@ class MainActivity : AppCompatActivity(),HomeView {
         homePresenter = HomePresenterImpl(this)
         my_recyclerview.layoutManager = LinearLayoutManager(this)
         my_recyclerview.adapter = productoAdapter
-
-
-
 
 
     }
@@ -59,5 +58,20 @@ class MainActivity : AppCompatActivity(),HomeView {
 
     override fun CargarError() {
         Toast.makeText(this@MainActivity, "Ocurrio un error", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+
+            R.id.option_agregar ->{
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
