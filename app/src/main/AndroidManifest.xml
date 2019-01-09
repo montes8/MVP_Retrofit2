@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".DetalleProductoActivity" />
-        <activity android:name=".FormularioProductoActivity"></activity>
+        <activity android:name=".FormularioProductoActivity" />
+        <activity android:name=".SplashActivity"></activity>
     </application>
 
 </manifest>
