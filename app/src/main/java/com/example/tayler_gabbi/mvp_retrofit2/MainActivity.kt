@@ -69,6 +69,9 @@ class MainActivity : AppCompatActivity(),HomeView {
         when(item.itemId){
 
             R.id.option_agregar ->{
+
+                val intent = Intent(this@MainActivity,FormularioProductoActivity::class.java)
+                startActivity(intent)
             }
 
         }
