@@ -29,9 +29,6 @@ class DetallePresenterImpl(private val detalleView : DetalleView): DetallePresen
         detalleView.productoEliminadoListo()
     }
 
-    override fun eliminarErrorProducto() {
-        detalleView.eliminarErrorProductoListo()
-    }
 
     override fun eliminarError() {
         detalleView.eliminarErrorListo()

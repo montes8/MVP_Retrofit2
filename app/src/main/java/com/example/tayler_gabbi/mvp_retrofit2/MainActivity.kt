@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 import com.example.tayler_gabbi.mvp_retrofit2.adapter.ListaProductoAdapter
 import com.example.tayler_gabbi.mvp_retrofit2.api.model.Producto
@@ -29,11 +30,16 @@ class MainActivity : AppCompatActivity(),HomeView {
         my_recyclerview.layoutManager = LinearLayoutManager(this)
         my_recyclerview.adapter = productoAdapter
 
+
+
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         homePresenter!!.cargarProductos(productoAdapter!!)
         homePresenter!!.pasarActivityDetalle(productoAdapter)
-
-
-
     }
 
     override fun pasarDetalle(producto: Producto) {

@@ -7,8 +7,6 @@ interface DetalleView {
 
     fun productoEliminadoListo()
 
-    fun eliminarErrorProductoListo()
-
     fun eliminarErrorListo()
 
     fun actulizaProductoListo(producto: Producto)

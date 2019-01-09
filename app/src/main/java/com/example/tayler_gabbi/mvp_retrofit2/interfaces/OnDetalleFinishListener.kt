@@ -6,8 +6,6 @@ interface OnDetalleFinishListener {
 
     fun productoEliminado()
 
-    fun eliminarErrorProducto()
-
     fun eliminarError()
 
     fun actulizaProducto(producto: Producto)

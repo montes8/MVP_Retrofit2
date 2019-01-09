@@ -13,12 +13,11 @@ class DetalleInteractorImpl : DetalleInteractor {
         val eliminarproductoCallback = ProductoService.create().eliminar(producto.id!!.toInt())
         eliminarproductoCallback.enqueue(object : Callback<Producto> {
             override fun onResponse(call: Call<Producto>?, response: Response<Producto>?) {
-                //toast("Ocurrio Un Error al Eliminar prroducto")
-                listener.eliminarErrorProducto()
+
             }
 
             override fun onFailure(call: Call<Producto>?, t: Throwable?) {
-               listener.eliminarError()
+
             }
         })
 

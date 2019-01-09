@@ -61,11 +61,6 @@ class DetalleProductoActivity : AppCompatActivity(),DetalleView {
         finish()
     }
 
-    override fun eliminarErrorProductoListo() {
-
-        Toast.makeText(this@DetalleProductoActivity,"Error al Eliminar producto",Toast.LENGTH_LONG).show()
-    }
-
     override fun eliminarErrorListo() {
 
         Toast.makeText(this@DetalleProductoActivity,"Error al Eliminar",Toast.LENGTH_LONG).show()
