@@ -9,7 +9,7 @@ import com.example.tayler_gabbi.mvp_retrofit2.view.SplashView
 class SplashPresenterImpl(var splashView: SplashView) : SplashPresenter,OnSplashFinishListener {
 
     var interactorSplash : SplashInteractor = SplashInteractorImpl()
-    override fun SplashExist() {
+    override fun splashExist() {
         interactorSplash.actionSplash(this)
     }
 
