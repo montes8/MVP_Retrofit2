@@ -4,8 +4,9 @@ import com.example.tayler_gabbi.mvp_retrofit2.interfaces.FormularioInteractor
 import com.example.tayler_gabbi.mvp_retrofit2.interfaces.OnFormularioFinishListener
 import com.example.tayler_gabbi.mvp_retrofit2.intteractores.FormularioInteractorImpl
 import com.example.tayler_gabbi.mvp_retrofit2.presenter.FormularioPresenter
+import com.example.tayler_gabbi.mvp_retrofit2.view.FormularioView
 
-class FormularioPresenterImpl : FormularioPresenter,OnFormularioFinishListener {
+class FormularioPresenterImpl(val formularioView: FormularioView) : FormularioPresenter,OnFormularioFinishListener {
 
 
     var interactorformulario : FormularioInteractor = FormularioInteractorImpl()
@@ -21,18 +22,18 @@ class FormularioPresenterImpl : FormularioPresenter,OnFormularioFinishListener {
 
 
     override fun productoGuardado() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        formularioView.productoGuardado()
     }
 
     override fun productoGuardadoError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        formularioView.productoGuardadoError()
     }
 
     override fun productoActualizado() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        formularioView.productoActualizado()
     }
 
     override fun productoActualizadoError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        formularioView.productoActualizadoError()
     }
 }
