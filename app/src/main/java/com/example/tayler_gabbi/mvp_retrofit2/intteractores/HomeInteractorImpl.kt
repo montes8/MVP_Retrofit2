@@ -27,9 +27,6 @@ class HomeInteractorImpl : HomeInteractor {
 
     }
 
-
-
-
     override fun cargarLista(adapter: ListaProductoAdapter, listener : OnHomeFinishListener) {
 
 

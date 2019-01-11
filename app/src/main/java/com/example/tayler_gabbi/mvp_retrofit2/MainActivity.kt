@@ -32,13 +32,13 @@ class MainActivity : AppCompatActivity(),HomeView {
         my_recyclerview.layoutManager = LinearLayoutManager(this)
         my_recyclerview.adapter = productoAdapter
 
+        cargarLista()
 
     }
 
     override fun onResume() {
         super.onResume()
-        homePresenter!!.cargarProductos(productoAdapter!!)
-        homePresenter!!.pasarActivityDetalle(productoAdapter)
+        cargarLista()
     }
 
     override fun pasarDetalle(producto: Producto) {
@@ -76,5 +76,12 @@ class MainActivity : AppCompatActivity(),HomeView {
 
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    fun cargarLista(){
+
+
+        homePresenter!!.cargarProductos(productoAdapter!!)
+        homePresenter!!.pasarActivityDetalle(productoAdapter)
     }
 }
