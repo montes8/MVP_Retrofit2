@@ -4,5 +4,9 @@ interface OnFormularioFinishListener {
 
     fun productoGuardado()
 
+    fun productoGuardadoError()
+
     fun productoActualizado()
+
+    fun productoActualizadoError()
 }
