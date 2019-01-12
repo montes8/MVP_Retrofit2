@@ -2,6 +2,7 @@ package com.example.tayler_gabbi.mvp_retrofit2
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.tayler_gabbi.mvp_retrofit2.api.model.Producto
 import com.example.tayler_gabbi.mvp_retrofit2.model.FormularioPresenterImpl
 import com.example.tayler_gabbi.mvp_retrofit2.presenter.FormularioPresenter
@@ -55,18 +56,21 @@ class FormularioProductoActivity : AppCompatActivity(),FormularioView {
 
 
     override fun productoGuardadoError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(this@FormularioProductoActivity,"error al guardar",Toast.LENGTH_LONG).show()
     }
 
     override fun productoGuardado() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        Toast.makeText(this@FormularioProductoActivity,"producto guardado",Toast.LENGTH_LONG).show()
     }
 
     override fun productoActualizado() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        Toast.makeText(this@FormularioProductoActivity,"producto actulizado",Toast.LENGTH_LONG).show()
     }
 
     override fun productoActualizadoError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        Toast.makeText(this@FormularioProductoActivity,"error al actulizar producto",Toast.LENGTH_LONG).show()
     }
 }
